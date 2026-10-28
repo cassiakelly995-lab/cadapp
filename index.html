@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#003b71">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<title>CAD | Sua central da advocacia dativa</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.png" type="image/png">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="shell">
+<aside>
+<a class="brand" href="#inicio">
+<img class="brand-icon" src="icons/icon-192.png" alt="Advocacia Dativa">
+<div>
+<strong>CAD</strong>
+<small>Advocacia Dativa · SP</small>
+</div>
+</a>
+<nav class="nav" aria-label="Navegação">
+<a class="active" href="#inicio">
+<i>◫</i>Visão geral</a>
+<a href="#noticias">
+<i>◷</i>Publicações</a>
+<a href="#acessos">
+<i>↗</i>Acessos oficiais</a>
+<a href="#guia">
+<i>▤</i>Guia prático</a>
+<a href="#escala">
+<i>⇄</i>Trocas de escala</a>
+<a href="#notas">
+<i>✎</i>Minhas notas</a>
+<a href="#instalar">
+<i>↓</i>Instalar aplicativo</a>
+</nav>
+<div class="aside-foot">
+<span class="dot">
+</span>Informação com origem<br>
+<br>Uma central independente para a sua rotina no convênio DPE/OAB SP.</div>
+</aside>
+<main id="inicio">
+<div id="dashboard">
+<div class="topbar">
+<span>SEU ESPAÇO DE TRABALHO</span>
+<span id="today">
+</span>
+<span class="pill">São Paulo</span>
+</div>
+<div class="intro">
+<div>
+<div class="eyebrow">Clareza para a sua rotina</div>
+<h1>A advocacia dativa,<br>
+<em>mais perto de você.</em>
+</h1>
+<p>Os acessos que você precisa. As publicações que importam.<br>Uma central para acompanhar o convênio DPE/OAB SP.</p>
+</div>
+<button class="btn light" id="refresh">↻ Atualizar publicações</button>
+</div>
+<div class="hero">
+<div>
+<span class="eyebrow">Seu principal acesso</span>
+<h2>Da nomeação ao pagamento.</h2>
+<p>Acesse o Portal da Advocacia Conveniada para consultar nomeações, aceitar certidões e acompanhar extratos.</p>
+<a class="btn" href="https://online.defensoria.sp.def.br/indicacaooab" target="_blank" rel="noopener noreferrer">Entrar no portal da Defensoria <span>↗</span>
+</a>
+</div>
+<div class="hero-art">
+<img src="icons/icon-512.png" alt="Ícone da Advocacia Dativa">
+</div>
+</div>
+<div class="section-head">
+<h2>Direto ao que você precisa</h2>
+<span class="sub">Acessos oficiais, em um lugar</span>
+</div>
+<div class="quick" id="quick">
+</div>
+<div class="section-head" id="noticias">
+<div>
+<div class="eyebrow">Acompanhe o convênio</div>
+<h2 style="margin-top:6px">No radar da dativa</h2>
+</div>
+<span class="sub">OAB SP + Defensoria</span>
+</div>
+<p id="sync" role="status" aria-live="polite">Buscando o feed publicado…</p>
+<div class="cols">
+<section class="panel" aria-label="Publicações">
+<label class="search">
+<span>⌕</span>
+<input id="search" type="search" placeholder="Buscar assunto, documento ou palavra-chave" aria-label="Buscar publicações">
+</label>
+<div class="filters" id="filters">
+</div>
+<div id="news">
+</div>
+<button id="more" class="btn light" hidden>Mostrar mais publicações</button>
+</section>
+<div class="side-stack">
+<section class="panel">
+<div class="eyebrow">Certidões digitais</div>
+<div class="date-big">Dia 25</div>
+<h3>O prazo do novo fluxo</h3>
+<p>O Comunicado 01/2026 prevê aceite até o dia 25 para pagamento no primeiro dia útil do segundo mês subsequente. Confira o calendário e eventuais comunicados posteriores.</p>
+<a href="https://www.oabsp.org.br/upload/4106076576.pdf" target="_blank" rel="noopener noreferrer">Ler comunicado e tutorial ↗</a>
+<p style="font-size:10px;margin-top:16px">Orientação conferida em 28/10/2026.</p>
+</section>
+<section class="panel">
+<h3>Consulta às fontes</h3>
+<p>A coleta traz títulos e links. A validade de cada regra deve ser conferida no documento.</p>
+<div id="states">
+</div>
+<p style="font-size:10px">Uma falha de consulta não significa ausência de novidades.</p>
+</section>
+</div>
+</div>
+<section id="acessos">
+<div class="section-head">
+<h2>Seus acessos oficiais</h2>
+<span class="sub">Escolha a tarefa e siga para a fonte</span>
+</div>
+<div class="access-grid" id="links">
+</div>
+</section>
+<section id="guia">
+<div class="section-head">
+<h2>Guia para o dia a dia</h2>
+<span class="sub">Orientações conferidas em 28/10/2026</span>
+</div>
+<div class="panel">
+<details open>
+<summary>Onde aceitar ou protocolar minha certidão?</summary>
+<p>Desde 16/07/2026, as certidões emitidas pelo TJSP a partir de 01/09/2025 seguem o aceite no sistema da Defensoria. Certidões anteriores a essa data, ausentes do sistema, seguem a área restrita OAB SP, prevista até setembro de 2030. Não repita um protocolo já realizado.</p>
+<a class="guide-link" href="https://www.oabsp.org.br/upload/4106076576.pdf" target="_blank" rel="noopener noreferrer">Comunicado 01/2026 e tutorial ↗</a>
+</details>
+<details>
+<summary>Como proceder com nomeações e dados do processo?</summary>
+<p>Para propositura de ação, o Comunicado 02/2026 orienta atender o usuário, ajuizar a demanda e depois registrar os dados e aceitar a nomeação. Em processos em andamento, os dados já constam da nomeação. Erros devem ser levados à subseção por e-mail para encaminhamento da retificação.</p>
+<a class="guide-link" href="https://www.defensoria.sp.def.br/documents/20122/64c947fb-bb59-39c0-4f75-33bbff4f0f75" target="_blank" rel="noopener noreferrer">Consultar Comunicado 02/2026 ↗</a>
+</details>
+<details>
+<summary>Qual tabela e qual termo devo consultar?</summary>
+<p>Comece pelas páginas oficiais de honorários e termos do convênio, que indicam vigência a partir de 01/05/2026. A aplicação a cada caso depende das regras e da situação processual; confira o documento completo.</p>
+<a class="guide-link" href="https://www.defensoria.sp.def.br/transparencia/portal-da-transparencia/convenios/convenio-oab/honorarios" target="_blank" rel="noopener noreferrer">Consultar honorários ↗</a>
+</details>
+<details>
+<summary>Onde vejo inscrições, revalidações e homologação?</summary>
+<p>O período do edital de 2026 foi de 09/03 a 30/04/2026 e está encerrado. Consulte a página de editais para listas e futuras aberturas, sem presumir inscrição automática.</p>
+<a class="guide-link" href="https://www.defensoria.sp.def.br/transparencia/portal-da-transparencia/convenios/convenio-oab/editais-oab" target="_blank" rel="noopener noreferrer">Abrir editais e listas ↗</a>
+</details>
+<details>
+<summary>Preciso resolver uma dúvida de pagamento. Quem procurar?</summary>
+<p>A página do convênio na Defensoria orienta procurar sua subseção para dúvidas sobre honorários. Use o diretório da OAB SP para localizar o atendimento local.</p>
+<a class="guide-link" href="https://www.oabsp.org.br/subsecoes" target="_blank" rel="noopener noreferrer">Localizar subseção ↗</a>
+</details>
+</div>
+</section>
+<section id="notas">
+<div class="section-head">
+<h2>Seu bloco de notas</h2>
+<span class="sub">Salvo neste navegador</span>
+</div>
+<div class="panel">
+<label for="notes">Lembretes da sua rotina</label>
+<textarea id="notes" class="note-area" placeholder="Anote o que você precisa lembrar…">
+</textarea>
+<div class="row">
+<button id="saveNote" class="btn">Salvar notas</button> <button id="exportNote" class="btn light">Exportar texto</button> <span id="noteStatus" class="sub" role="status">
+</span>
+</div>
+<p class="sub">As notas ficam neste dispositivo. Exporte uma cópia para guardar.</p>
+</div>
+</section>
+</div>
+<section id="escala" hidden>
+<div class="eyebrow">Organização da triagem</div>
+<div class="intro">
+<div>
+<h1>Trocas de <em>escala.</em>
+</h1>
+<p>Registre substituições, acompanhe confirmações e tenha sua agenda organizada.</p>
+</div>
+<span class="pill">Salvo neste aparelho</span>
+</div>
+<div class="scale-stats">
+<div class="panel">
+<span class="eyebrow">Neste filtro</span>
+<strong id="totalTrades">0</strong>
+<span>trocas registradas</span>
+</div>
+<div class="panel">
+<span class="eyebrow">A acompanhar</span>
+<strong id="pendingTrades">0</strong>
+<span>pendentes</span>
+</div>
+<div class="panel">
+<span class="eyebrow">Tudo certo</span>
+<strong id="confirmedTrades">0</strong>
+<span>confirmadas</span>
+</div>
+</div>
+<div class="scale-layout">
+<div class="panel">
+<h2 id="formTitle">Nova troca</h2>
+<p class="sub">Preencha os participantes e a data da triagem.</p>
+<form id="tradeForm">
+<div class="form-grid">
+<label>Data da triagem<input id="eData" type="date" required>
+</label>
+<label>Turno<select id="eTurno">
+<option>Manhã</option>
+<option>Tarde</option>
+<option>Dia todo</option>
+</select>
+</label>
+<label>Advogado(a) que sai<input id="eSai" type="text" required maxlength="160" list="advs" autocomplete="off" placeholder="Nome de quem será substituído">
+</label>
+<label>Advogado(a) que entra<input id="eEntra" type="text" required maxlength="160" list="advs" autocomplete="off" placeholder="Nome de quem assume a triagem">
+</label>
+</div>
+<datalist id="advs">
+</datalist>
+<label class="form-full">Observação (opcional)<textarea id="eMotivo" rows="3" maxlength="1000" placeholder="Local, horário ou informação importante">
+</textarea>
+</label>
+<div class="trade-actions">
+<button class="btn" type="submit" id="eSalvar">Registrar troca</button>
+<button class="btn light" type="button" id="eCancelar" hidden>Cancelar edição</button>
+</div>
+</form>
+<p class="sub">Registro pessoal: a confirmação nesta tela não comunica a subseção ou o outro profissional.</p>
+</div>
+<div class="panel scale-tip">
+<div class="eyebrow">Sua rotina, organizada</div>
+<h2>Um cuidado a menos.</h2>
+<p>Use “Pendente” até conferir a substituição. Depois marque a troca como confirmada.</p>
+<p>Copie o resumo para compartilhar por conta própria e exporte um backup para guardar seus registros.</p>
+<a class="source-link" href="https://www.oabsp.org.br/subsecoes" target="_blank" rel="noopener noreferrer">Consultar sua subseção ↗</a>
+</div>
+</div>
+<div class="section-head">
+<h2>Trocas registradas</h2>
+<div class="trade-actions">
+<button id="eCopiar" class="btn light">Copiar resumo</button>
+<button id="eCsv" class="btn light">Exportar CSV</button>
+</div>
+</div>
+<div class="panel">
+<div class="form-grid trade-filters">
+<label>Mês<input id="eMes" type="month">
+</label>
+<label>Situação<select id="eStatus">
+<option value="">Todas</option>
+<option>Pendente</option>
+<option>Confirmada</option>
+</select>
+</label>
+<label>Buscar profissional<input id="eBusca" type="search" placeholder="Digite um nome">
+</label>
+</div>
+<p id="eMsg" class="sub" role="status" aria-live="polite">
+</p>
+<div id="eLista">
+</div>
+</div>
+<div class="trade-actions backup-actions">
+<button class="btn light" id="eBackup">Baixar backup das trocas</button>
+<label class="btn light" for="eImport">Importar backup</label>
+<input id="eImport" type="file" accept="application/json,.json" hidden>
+</div>
+</section>
+<section id="instalar" hidden>
+<div class="eyebrow">Sempre à mão</div>
+<h1>Seu app no celular.</h1>
+<div class="panel">
+<img src="icons/icon-192.png" alt="Ícone do aplicativo" width="90" height="90" style="border-radius:20px">
+<h2 style="margin:20px 0">Instale a Central CAD</h2>
+<p>Abra o endereço publicado no GitHub Pages pelo navegador do celular.</p>
+<p>
+<b>Android:</b> menu do Chrome → Instalar aplicativo ou Adicionar à tela inicial.</p>
+<p>
+<b>iPhone:</b> Safari → Compartilhar → Adicionar à Tela de Início.</p>
+<button class="btn" id="installApp" hidden>Instalar aplicativo</button>
+<p id="installStatus" role="status">
+</p>
+<button class="btn light" id="updateApp">Verificar atualização do app</button>
+<p class="sub">Versão 2.0.0 · A página e os acessos ficam disponíveis offline depois da primeira visita. Notícias novas precisam de internet.</p>
+</div>
+</section>
+<footer class="foot">
+<span>CAD · Central independente da Advocacia Dativa SP<br>Sem vínculo institucional com a OAB SP ou a Defensoria Pública.</span>
+<span>Seleção editorial: 28/10/2026.<br>Feed verificado ao abrir · coleta programada no GitHub.</span>
+</footer>
+</main>
+</div>
+<script type="module" src="app.js">
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Notícias OAB SP",
+    "url": "https://www.oabsp.org.br/comissao-noticias/advocacia-dativa",
+    "kind": "news",
+    "category": "Notícias"
+  },
+  {
+    "name": "Comissão OAB SP",
+    "url": "https://www.oabsp.org.br/comissao/advocacia-dativa",
+    "kind": "news",
+    "category": "Notícias"
+  },
+  {
+    "name": "Comunicados DPESP",
+    "url": "https://www.defensoria.sp.def.br/web/guest/transparencia/portal-da-transparencia/publicacoes?_br_def_sp_defensoria_publicacoes_web_DpespPublicacoesPortlet_INSTANCE_nmnv_orgao=assessoria_de_convenios&_br_def_sp_defensoria_publicacoes_web_DpespPublicacoesPortlet_INSTANCE_nmnv_tipo=comunicado&_br_def_sp_defensoria_publicacoes_web_DpespPublicacoesPortlet_INSTANCE_nmnv_pesquisar=S",
+    "kind": "docs",
+    "category": "Comunicados"
+  },
+  {
+    "name": "Editais DPESP",
+    "url": "https://www.defensoria.sp.def.br/transparencia/portal-da-transparencia/convenios/convenio-oab/editais-oab",
+    "kind": "edital",
+    "category": "Inscrições"
+  },
+  {
+    "name": "Termos DPESP",
+    "url": "https://www.defensoria.sp.def.br/transparencia/convenios/oab/termos-de-convenios",
+    "kind": "termo",
+    "category": "Convênio"
+  }
+]

@@ -1,0 +1,273 @@
+{
+  "version": "2.0.0",
+  "attemptedAt": "2026-10-28T17:25:36.549087+00:00",
+  "sources": [
+    {
+      "name": "Notícias OAB SP",
+      "url": "https://www.oabsp.org.br/comissao-noticias/advocacia-dativa",
+      "attemptedAt": "2026-10-28T17:25:36.549087+00:00",
+      "ok": true,
+      "checkedAt": "2026-10-28T17:25:36.549087+00:00"
+    },
+    {
+      "name": "Comissão OAB SP",
+      "url": "https://www.oabsp.org.br/comissao/advocacia-dativa",
+      "attemptedAt": "2026-10-28T17:25:36.549087+00:00",
+      "ok": true,
+      "checkedAt": "2026-10-28T17:25:36.549087+00:00"
+    },
+    {
+      "name": "Comunicados DPESP",
+      "url": "https://www.defensoria.sp.def.br/web/guest/transparencia/portal-da-transparencia/publicacoes?_br_def_sp_defensoria_publicacoes_web_DpespPublicacoesPortlet_INSTANCE_nmnv_orgao=assessoria_de_convenios&_br_def_sp_defensoria_publicacoes_web_DpespPublicacoesPortlet_INSTANCE_nmnv_tipo=comunicado&_br_def_sp_defensoria_publicacoes_web_DpespPublicacoesPortlet_INSTANCE_nmnv_pesquisar=S",
+      "attemptedAt": "2026-10-28T17:25:36.549087+00:00",
+      "ok": true,
+      "checkedAt": "2026-10-28T17:25:36.549087+00:00"
+    },
+    {
+      "name": "Editais DPESP",
+      "url": "https://www.defensoria.sp.def.br/transparencia/portal-da-transparencia/convenios/convenio-oab/editais-oab",
+      "attemptedAt": "2026-10-28T17:25:36.549087+00:00",
+      "ok": true,
+      "checkedAt": "2026-10-28T17:25:36.549087+00:00"
+    },
+    {
+      "name": "Termos DPESP",
+      "url": "https://www.defensoria.sp.def.br/transparencia/convenios/oab/termos-de-convenios",
+      "attemptedAt": "2026-10-28T17:25:36.549087+00:00",
+      "ok": true,
+      "checkedAt": "2026-10-28T17:25:36.549087+00:00"
+    }
+  ],
+  "items": [
+    {
+      "title": "Novo convênio da advocacia dativa traz reajustes de até 24,7%, antecipação de honorários e sistema integrado de pagamento",
+      "url": "https://www.oabsp.org.br/jornaldaadvocacia/26-03-02-2024-novo-convenio-da-advocacia-dativa-traz-reajustes-de-ate-antecipacao-de-honorarios-e-sistema-integrado-de-pagamento",
+      "source": "Notícias OAB SP",
+      "category": "Notícias",
+      "date": "02/03/2026",
+      "sortDate": "2026-03-02",
+      "summary": "Publicação localizada na página oficial. Confira no documento a vigência e as orientações completas.",
+      "collectedAt": "2026-10-28T17:25:36.549087+00:00"
+    },
+    {
+      "title": "OAB SP divulga edital para atuação em assistência judiciária em São Paulo",
+      "url": "https://www.oabsp.org.br/jornaldaadvocacia/26-02-09-2011-oab-sp-divulga-edital-para-atuacao-em-assistencia-judiciaria-em-sao-paulo",
+      "source": "Notícias OAB SP",
+      "category": "Notícias",
+      "date": "09/02/2026",
+      "sortDate": "2026-02-09",
+      "summary": "Publicação localizada na página oficial. Confira no documento a vigência e as orientações completas.",
+      "collectedAt": "2026-10-28T17:25:36.549087+00:00"
+    },
+    {
+      "title": "COMUNICADO CONJUNTO Nº 01/2026 DA ASSESSORIA DE CONVÊNIOS DA DEFENSORIA PÚBLICA DO ESTADO E DA COMISSÃO DA ADVOCACIA DATIVA DA OAB/SP",
+      "url": "https://www.defensoria.sp.def.br/documents/20122/20a460ff-b0e7-1fae-a730-19ebc54898b4",
+      "source": "Comunicados DPESP",
+      "category": "Comunicados",
+      "date": "Referência a 2026 · confira a data na fonte",
+      "sortDate": "2026-01-01",
+      "summary": "Publicação localizada na página oficial. Confira no documento a vigência e as orientações completas.",
+      "collectedAt": "2026-10-28T17:25:36.549087+00:00"
+    },
+    {
+      "title": "Comunicado Conjunto 02-2026 - Aceite das nomeações pelos advogados conveniados no sistema",
+      "url": "https://www.defensoria.sp.def.br/documents/20122/64c947fb-bb59-39c0-4f75-33bbff4f0f75",
+      "source": "Comunicados DPESP",
+      "category": "Comunicados",
+      "date": "Referência a 2026 · confira a data na fonte",
+      "sortDate": "2026-01-01",
+      "summary": "Publicação localizada na página oficial. Confira no documento a vigência e as orientações completas.",
+      "collectedAt": "2026-10-28T17:25:36.549087+00:00"
+    },
+    {
+      "title": "Lista final de advogados/as homologados/as 2026",
+      "url": "https://www.defensoria.sp.def.br/documents/d/guest/habilitados",
+      "source": "Editais DPESP",
+      "category": "Inscrições",
+      "date": "Referência a 2026 · confira a data na fonte",
+      "sortDate": "2026-01-01",
+      "summary": "Publicação localizada na página oficial. Confira no documento a vigência e as orientações completas.",
+      "collectedAt": "2026-10-28T17:25:36.549087+00:00"
+    },
+    {
+      "title": "Lista de advogados/as habilitados/as 2026",
+      "url": "https://www.defensoria.sp.def.br/documents/d/guest/habilitados-2026-pdf-1",
+      "source": "Editais DPESP",
+      "category": "Inscrições",
+      "date": "Referência a 2026 · confira a data na fonte",
+      "sortDate": "2026-01-01",
+      "summary": "Publicação localizada na página oficial. Confira no documento a vigência e as orientações completas.",
+      "collectedAt": "2026-10-28T17:25:36.549087+00:00"
+    },
+    {
+      "title": "Edital de Inscrições 2026",
+      "url": "https://www.defensoria.sp.def.br/documents/20122/6167160/Edital de Inscrições 2025 2026 com cronograma.docx/c64799fc-ad4b-7d70-70d6-c18b25e780c7?download=false",
+      "source": "Editais DPESP",
+      "category": "Inscrições",
+      "date": "Referência a 2026 · confira a data na fonte",
+      "sortDate": "2026-01-01",
+      "summary": "Publicação localizada na página oficial. Confira no documento a vigência e as orientações completas.",
+      "collectedAt": "2026-10-28T17:25:36.549087+00:00"
+    },
+    {
+      "title": "Termo de Convênio vigente a partir de 1º de Maio de 2026",
+      "url": "https://www.defensoria.sp.def.br/documents/d/guest/convenio-consolidado",
+      "source": "Termos DPESP",
+      "category": "Convênio",
+      "date": "Referência a 2026 · confira a data na fonte",
+      "sortDate": "2026-01-01",
+      "summary": "Publicação localizada na página oficial. Confira no documento a vigência e as orientações completas.",
+      "collectedAt": "2026-10-28T17:25:36.549087+00:00"
+    },
+    {
+      "title": "Novo sistema digital de certidões da Defensoria Pública já mostra resultados positivos para a Advocacia Dativa",
+      "url": "https://www.oabsp.org.br/jornaldaadvocacia/25-10-20-1716-novo-sistema-digital-de-certidoes-da-defensoria-publica-ja-mostra-resultados-positivos-para-a-advocacia-dativa",
+      "source": "Notícias OAB SP",
+      "category": "Notícias",
+      "date": "20/10/2025",
+      "sortDate": "2025-10-20",
+      "summary": "Publicação localizada na página oficial. Confira no documento a vigência e as orientações completas.",
+      "collectedAt": "2026-10-28T17:25:36.549087+00:00"
+    },
+    {
+      "title": "20220321 - Comunicado Conjunto 01-2022 - Honorários e-social de 21 de março de 2022 / ORIENTAÇÃO AOS/ÀS ADVOGADOS/AS CONVENIADOS/AS SOBRE O PREENCHIMENTO DOS DADOS RELATIVOS AO E-SOCIAL",
+      "url": "https://www.defensoria.sp.def.br/documents/20122/62413a8c-fe28-f11a-848a-7a434129af03",
+      "source": "Comunicados DPESP",
+      "category": "Comunicados",
+      "date": "Referência a 2022 · confira a data na fonte",
+      "sortDate": "2022-01-01",
+      "summary": "Publicação localizada na página oficial. Confira no documento a vigência e as orientações completas.",
+      "collectedAt": "2026-10-28T17:25:36.549087+00:00"
+    },
+    {
+      "title": "20171017 - Comunicado da Assessoria de Convênios 17 de outubro de 2017",
+      "url": "https://www.defensoria.sp.def.br/documents/20122/b1adef36-485d-dd5e-3ade-589fa7a1ccc6",
+      "source": "Comunicados DPESP",
+      "category": "Comunicados",
+      "date": "Referência a 2017 · confira a data na fonte",
+      "sortDate": "2017-01-01",
+      "summary": "Publicação localizada na página oficial. Confira no documento a vigência e as orientações completas.",
+      "collectedAt": "2026-10-28T17:25:36.549087+00:00"
+    },
+    {
+      "title": "20170728 - Comunicado da Assessoria de Convênios 28 de julho de 2017",
+      "url": "https://www.defensoria.sp.def.br/documents/20122/0a2f1c32-73ae-2b22-dc52-453000df6cd0",
+      "source": "Comunicados DPESP",
+      "category": "Comunicados",
+      "date": "Referência a 2017 · confira a data na fonte",
+      "sortDate": "2017-01-01",
+      "summary": "Publicação localizada na página oficial. Confira no documento a vigência e as orientações completas.",
+      "collectedAt": "2026-10-28T17:25:36.549087+00:00"
+    },
+    {
+      "title": "20170525 - Comunicado da Assessoria de Convênios 25 de maio de 2017",
+      "url": "https://www.defensoria.sp.def.br/documents/20122/f23419e1-a0e3-69b2-3971-768bcbe37a41",
+      "source": "Comunicados DPESP",
+      "category": "Comunicados",
+      "date": "Referência a 2017 · confira a data na fonte",
+      "sortDate": "2017-01-01",
+      "summary": "Publicação localizada na página oficial. Confira no documento a vigência e as orientações completas.",
+      "collectedAt": "2026-10-28T17:25:36.549087+00:00"
+    },
+    {
+      "title": "20160627 - Comunicado da Assessoria de Convênios 27 de junho de 2016",
+      "url": "https://www.defensoria.sp.def.br/documents/20122/dcad239a-700b-e54e-563d-c59d178ad815",
+      "source": "Comunicados DPESP",
+      "category": "Comunicados",
+      "date": "Referência a 2016 · confira a data na fonte",
+      "sortDate": "2016-01-01",
+      "summary": "Publicação localizada na página oficial. Confira no documento a vigência e as orientações completas.",
+      "collectedAt": "2026-10-28T17:25:36.549087+00:00"
+    },
+    {
+      "title": "20160415 - Comunicado da Assessoria de Convênios 15 de abril de 2016",
+      "url": "https://www.defensoria.sp.def.br/documents/20122/18e008da-526a-d202-f4d1-8421cac3bb41",
+      "source": "Comunicados DPESP",
+      "category": "Comunicados",
+      "date": "Referência a 2016 · confira a data na fonte",
+      "sortDate": "2016-01-01",
+      "summary": "Publicação localizada na página oficial. Confira no documento a vigência e as orientações completas.",
+      "collectedAt": "2026-10-28T17:25:36.549087+00:00"
+    },
+    {
+      "title": "20160316 - Comunicado da Assessoria de Convênios e NEIJ 16 de março de 2016",
+      "url": "https://www.defensoria.sp.def.br/documents/20122/e5e75933-8e02-f411-e8cb-df6ae614cdf8",
+      "source": "Comunicados DPESP",
+      "category": "Comunicados",
+      "date": "Referência a 2016 · confira a data na fonte",
+      "sortDate": "2016-01-01",
+      "summary": "Publicação localizada na página oficial. Confira no documento a vigência e as orientações completas.",
+      "collectedAt": "2026-10-28T17:25:36.549087+00:00"
+    },
+    {
+      "title": "20160302 - Comunicado da Assessoria de Convênios 02 de março de 2016",
+      "url": "https://www.defensoria.sp.def.br/documents/20122/82a012f9-4039-6515-2131-e8dbc4f1d01b",
+      "source": "Comunicados DPESP",
+      "category": "Comunicados",
+      "date": "Referência a 2016 · confira a data na fonte",
+      "sortDate": "2016-01-01",
+      "summary": "Publicação localizada na página oficial. Confira no documento a vigência e as orientações completas.",
+      "collectedAt": "2026-10-28T17:25:36.549087+00:00"
+    },
+    {
+      "title": "20160127 - Comunicado da Assessoria de Convênios 27 de janeiro de 2016",
+      "url": "https://www.defensoria.sp.def.br/documents/20122/90aadd4a-25bb-cad6-2240-e61b2693eeef",
+      "source": "Comunicados DPESP",
+      "category": "Comunicados",
+      "date": "Referência a 2016 · confira a data na fonte",
+      "sortDate": "2016-01-01",
+      "summary": "Publicação localizada na página oficial. Confira no documento a vigência e as orientações completas.",
+      "collectedAt": "2026-10-28T17:25:36.549087+00:00"
+    },
+    {
+      "title": "20160121 - Comunicado da Assessoria de Convênios 21 de janeiro de 2016",
+      "url": "https://www.defensoria.sp.def.br/documents/20122/0845d821-d988-c4d0-1a86-ae79705bd765",
+      "source": "Comunicados DPESP",
+      "category": "Comunicados",
+      "date": "Referência a 2016 · confira a data na fonte",
+      "sortDate": "2016-01-01",
+      "summary": "Publicação localizada na página oficial. Confira no documento a vigência e as orientações completas.",
+      "collectedAt": "2026-10-28T17:25:36.549087+00:00"
+    },
+    {
+      "title": "20160111 - Comunicado da Assessoria de Convênios 11 de janeiro de 2016",
+      "url": "https://www.defensoria.sp.def.br/documents/20122/2bfdf38b-1cf3-417b-a9bb-fcc61a62bdda",
+      "source": "Comunicados DPESP",
+      "category": "Comunicados",
+      "date": "Referência a 2016 · confira a data na fonte",
+      "sortDate": "2016-01-01",
+      "summary": "Publicação localizada na página oficial. Confira no documento a vigência e as orientações completas.",
+      "collectedAt": "2026-10-28T17:25:36.549087+00:00"
+    },
+    {
+      "title": "20160104 - Comunicado da Assessoria de Convênios 04 de janeiro de 2016",
+      "url": "https://www.defensoria.sp.def.br/documents/20122/e99205c8-bca0-f9b2-7c07-b590ef8f23be",
+      "source": "Comunicados DPESP",
+      "category": "Comunicados",
+      "date": "Referência a 2016 · confira a data na fonte",
+      "sortDate": "2016-01-01",
+      "summary": "Publicação localizada na página oficial. Confira no documento a vigência e as orientações completas.",
+      "collectedAt": "2026-10-28T17:25:36.549087+00:00"
+    },
+    {
+      "title": "20151204 - Comunicado da Assessoria de Convênios 04 de dezembro de 2015",
+      "url": "https://www.defensoria.sp.def.br/documents/20122/63b39171-d0bf-49a1-9003-0b689bde017f",
+      "source": "Comunicados DPESP",
+      "category": "Comunicados",
+      "date": "Referência a 2015 · confira a data na fonte",
+      "sortDate": "2015-01-01",
+      "summary": "Publicação localizada na página oficial. Confira no documento a vigência e as orientações completas.",
+      "collectedAt": "2026-10-28T17:25:36.549087+00:00"
+    },
+    {
+      "title": "20151001 - Comunicado da Assessoria de Convênios 01 de outubro de 2015",
+      "url": "https://www.defensoria.sp.def.br/documents/20122/1ac26dd2-0730-cb17-b861-45ac7d8b2bb9",
+      "source": "Comunicados DPESP",
+      "category": "Comunicados",
+      "date": "Referência a 2015 · confira a data na fonte",
+      "sortDate": "2015-01-01",
+      "summary": "Publicação localizada na página oficial. Confira no documento a vigência e as orientações completas.",
+      "collectedAt": "2026-10-28T17:25:36.549087+00:00"
+    }
+  ]
+}
