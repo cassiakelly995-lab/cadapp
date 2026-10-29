@@ -1,302 +1,1235 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#003b71">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
-<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
-<title>CAD | Sua central da advocacia dativa</title>
-<link rel="manifest" href="manifest.webmanifest">
-<link rel="icon" href="icons/icon-192.png" type="image/png">
-<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#003b71">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+  <title>CAD | Sua central da advocacia dativa</title>
+
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon-192.png" type="image/png">
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    .autocomplete-wrapper {
+      position: relative;
+      min-width: 0;
+    }
+
+    .autocomplete-dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      margin-top: 5px;
+      background: #ffffff;
+      border: 1px solid #bdcee2;
+      border-radius: 9px;
+      box-shadow: 0 12px 30px #003b7126;
+      z-index: 40;
+      max-height: 300px;
+      overflow: auto;
+    }
+
+    .autocomplete-option {
+      padding: 11px 13px;
+      cursor: pointer;
+      border-bottom: 1px solid #eef3f9;
+    }
+
+    .autocomplete-option strong {
+      display: block;
+      font-size: 12px;
+      line-height: 1.5;
+      color: #102d4e;
+      font-weight: 600;
+      overflow-wrap: anywhere;
+    }
+
+    .autocomplete-option small {
+      display: block;
+      color: #62768c;
+      font-size: 11px;
+      margin-top: 2px;
+    }
+
+    .autocomplete-option:hover,
+    .autocomplete-option.is-active {
+      background: #eaf2fc;
+    }
+
+    .autocomplete-status {
+      padding: 10px 13px;
+      color: #62768c;
+      font-size: 11px;
+      background: #f7faff;
+    }
+
+    @media (max-width: 700px) {
+      .autocomplete-dropdown {
+        max-height: 250px;
+      }
+
+      .autocomplete-option {
+        min-height: 54px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-<div class="shell">
-<aside>
-<a class="brand" href="#inicio">
-<img class="brand-icon" src="icons/icon-192.png" alt="Advocacia Dativa">
-<div>
-<strong>CAD</strong>
-<small>Advocacia Dativa · SP</small>
-</div>
-</a>
-<nav class="nav" aria-label="Navegação">
-<a class="active" href="#inicio">
-<i>◫</i>Visão geral</a>
-<a href="#noticias">
-<i>◷</i>Publicações</a>
-<a href="#acessos">
-<i>↗</i>Acessos oficiais</a>
-<a href="#guia">
-<i>▤</i>Guia prático</a>
-<a href="#escala">
-<i>⇄</i>Trocas de escala</a>
-<a href="#notas">
-<i>✎</i>Minhas notas</a>
-<a href="#instalar">
-<i>↓</i>Instalar aplicativo</a>
-</nav>
-<div class="aside-foot">
-<span class="dot">
-</span>Informação com origem<br>
-<br>Uma central independente para a sua rotina no convênio DPE/OAB SP.</div>
-</aside>
-<main id="inicio">
-<div id="dashboard">
-<div class="topbar">
-<span>SEU ESPAÇO DE TRABALHO</span>
-<span id="today">
-</span>
-<span class="pill">São Paulo</span>
-</div>
-<div class="intro">
-<div>
-<div class="eyebrow">Clareza para a sua rotina</div>
-<h1>A advocacia dativa,<br>
-<em>mais perto de você.</em>
-</h1>
-<p>Os acessos que você precisa. As publicações que importam.<br>Uma central para acompanhar o convênio DPE/OAB SP.</p>
-</div>
-<button class="btn light" id="refresh">↻ Atualizar publicações</button>
-</div>
-<div class="hero">
-<div>
-<span class="eyebrow">Seu principal acesso</span>
-<h2>Da nomeação ao pagamento.</h2>
-<p>Acesse o Portal da Advocacia Conveniada para consultar nomeações, aceitar certidões e acompanhar extratos.</p>
-<a class="btn" href="https://online.defensoria.sp.def.br/indicacaooab" target="_blank" rel="noopener noreferrer">Entrar no portal da Defensoria <span>↗</span>
-</a>
-</div>
-<div class="hero-art">
-<img src="icons/icon-512.png" alt="Ícone da Advocacia Dativa">
-</div>
-</div>
-<div class="section-head">
-<h2>Direto ao que você precisa</h2>
-<span class="sub">Acessos oficiais, em um lugar</span>
-</div>
-<div class="quick" id="quick">
-</div>
-<div class="section-head" id="noticias">
-<div>
-<div class="eyebrow">Acompanhe o convênio</div>
-<h2 style="margin-top:6px">No radar da dativa</h2>
-</div>
-<span class="sub">OAB SP + Defensoria</span>
-</div>
-<p id="sync" role="status" aria-live="polite">Buscando o feed publicado…</p>
-<div class="cols">
-<section class="panel" aria-label="Publicações">
-<label class="search">
-<span>⌕</span>
-<input id="search" type="search" placeholder="Buscar assunto, documento ou palavra-chave" aria-label="Buscar publicações">
-</label>
-<div class="filters" id="filters">
-</div>
-<div id="news">
-</div>
-<button id="more" class="btn light" hidden>Mostrar mais publicações</button>
-</section>
-<div class="side-stack">
-<section class="panel">
-<div class="eyebrow">Certidões digitais</div>
-<div class="date-big">Dia 25</div>
-<h3>O prazo do novo fluxo</h3>
-<p>O Comunicado 01/2026 prevê aceite até o dia 25 para pagamento no primeiro dia útil do segundo mês subsequente. Confira o calendário e eventuais comunicados posteriores.</p>
-<a href="https://www.oabsp.org.br/upload/4106076576.pdf" target="_blank" rel="noopener noreferrer">Ler comunicado e tutorial ↗</a>
-<p style="font-size:10px;margin-top:16px">Orientação conferida em 28/10/2026.</p>
-</section>
-<section class="panel">
-<h3>Consulta às fontes</h3>
-<p>A coleta traz títulos e links. A validade de cada regra deve ser conferida no documento.</p>
-<div id="states">
-</div>
-<p style="font-size:10px">Uma falha de consulta não significa ausência de novidades.</p>
-</section>
-</div>
-</div>
-<section id="acessos">
-<div class="section-head">
-<h2>Seus acessos oficiais</h2>
-<span class="sub">Escolha a tarefa e siga para a fonte</span>
-</div>
-<div class="access-grid" id="links">
-</div>
-</section>
-<section id="guia">
-<div class="section-head">
-<h2>Guia para o dia a dia</h2>
-<span class="sub">Orientações conferidas em 28/10/2026</span>
-</div>
-<div class="panel">
-<details open>
-<summary>Onde aceitar ou protocolar minha certidão?</summary>
-<p>Desde 16/07/2026, as certidões emitidas pelo TJSP a partir de 01/09/2025 seguem o aceite no sistema da Defensoria. Certidões anteriores a essa data, ausentes do sistema, seguem a área restrita OAB SP, prevista até setembro de 2030. Não repita um protocolo já realizado.</p>
-<a class="guide-link" href="https://www.oabsp.org.br/upload/4106076576.pdf" target="_blank" rel="noopener noreferrer">Comunicado 01/2026 e tutorial ↗</a>
-</details>
-<details>
-<summary>Como proceder com nomeações e dados do processo?</summary>
-<p>Para propositura de ação, o Comunicado 02/2026 orienta atender o usuário, ajuizar a demanda e depois registrar os dados e aceitar a nomeação. Em processos em andamento, os dados já constam da nomeação. Erros devem ser levados à subseção por e-mail para encaminhamento da retificação.</p>
-<a class="guide-link" href="https://www.defensoria.sp.def.br/documents/20122/64c947fb-bb59-39c0-4f75-33bbff4f0f75" target="_blank" rel="noopener noreferrer">Consultar Comunicado 02/2026 ↗</a>
-</details>
-<details>
-<summary>Qual tabela e qual termo devo consultar?</summary>
-<p>Comece pelas páginas oficiais de honorários e termos do convênio, que indicam vigência a partir de 01/05/2026. A aplicação a cada caso depende das regras e da situação processual; confira o documento completo.</p>
-<a class="guide-link" href="https://www.defensoria.sp.def.br/transparencia/portal-da-transparencia/convenios/convenio-oab/honorarios" target="_blank" rel="noopener noreferrer">Consultar honorários ↗</a>
-</details>
-<details>
-<summary>Onde vejo inscrições, revalidações e homologação?</summary>
-<p>O período do edital de 2026 foi de 09/03 a 30/04/2026 e está encerrado. Consulte a página de editais para listas e futuras aberturas, sem presumir inscrição automática.</p>
-<a class="guide-link" href="https://www.defensoria.sp.def.br/transparencia/portal-da-transparencia/convenios/convenio-oab/editais-oab" target="_blank" rel="noopener noreferrer">Abrir editais e listas ↗</a>
-</details>
-<details>
-<summary>Preciso resolver uma dúvida de pagamento. Quem procurar?</summary>
-<p>A página do convênio na Defensoria orienta procurar sua subseção para dúvidas sobre honorários. Use o diretório da OAB SP para localizar o atendimento local.</p>
-<a class="guide-link" href="https://www.oabsp.org.br/subsecoes" target="_blank" rel="noopener noreferrer">Localizar subseção ↗</a>
-</details>
-</div>
-</section>
-<section id="notas">
-<div class="section-head">
-<h2>Seu bloco de notas</h2>
-<span class="sub">Salvo neste navegador</span>
-</div>
-<div class="panel">
-<label for="notes">Lembretes da sua rotina</label>
-<textarea id="notes" class="note-area" placeholder="Anote o que você precisa lembrar…">
-</textarea>
-<div class="row">
-<button id="saveNote" class="btn">Salvar notas</button> <button id="exportNote" class="btn light">Exportar texto</button> <span id="noteStatus" class="sub" role="status">
-</span>
-</div>
-<p class="sub">As notas ficam neste dispositivo. Exporte uma cópia para guardar.</p>
-</div>
-</section>
-</div>
-<section id="escala" hidden>
-<div class="eyebrow">Organização da triagem</div>
-<div class="intro">
-<div>
-<h1>Trocas de <em>escala.</em>
-</h1>
-<p>Registre substituições, acompanhe confirmações e tenha sua agenda organizada.</p>
-</div>
-<span class="pill">Salvo neste aparelho</span>
-</div>
-<div class="scale-stats">
-<div class="panel">
-<span class="eyebrow">Neste filtro</span>
-<strong id="totalTrades">0</strong>
-<span>trocas registradas</span>
-</div>
-<div class="panel">
-<span class="eyebrow">A acompanhar</span>
-<strong id="pendingTrades">0</strong>
-<span>pendentes</span>
-</div>
-<div class="panel">
-<span class="eyebrow">Tudo certo</span>
-<strong id="confirmedTrades">0</strong>
-<span>confirmadas</span>
-</div>
-</div>
-<div class="scale-layout">
-<div class="panel">
-<h2 id="formTitle">Nova troca</h2>
-<p class="sub">Preencha os participantes e a data da triagem.</p>
-<form id="tradeForm">
-<div class="form-grid">
-<label>Data da triagem<input id="eData" type="date" required>
-</label>
-<label>Turno<select id="eTurno">
-<option>Manhã</option>
-<option>Tarde</option>
-<option>Dia todo</option>
-</select>
-</label>
-<label>Advogado(a) que sai<input id="eSai" type="text" required maxlength="160" list="advs" autocomplete="off" placeholder="Nome de quem será substituído">
-</label>
-<label>Advogado(a) que entra<input id="eEntra" type="text" required maxlength="160" list="advs" autocomplete="off" placeholder="Nome de quem assume a triagem">
-</label>
-</div>
-<datalist id="advs">
-</datalist>
-<label class="form-full">Observação (opcional)<textarea id="eMotivo" rows="3" maxlength="1000" placeholder="Local, horário ou informação importante">
-</textarea>
-</label>
-<div class="trade-actions">
-<button class="btn" type="submit" id="eSalvar">Registrar troca</button>
-<button class="btn light" type="button" id="eCancelar" hidden>Cancelar edição</button>
-</div>
-</form>
-<p class="sub">Registro pessoal: a confirmação nesta tela não comunica a subseção ou o outro profissional.</p>
-</div>
-<div class="panel scale-tip">
-<div class="eyebrow">Sua rotina, organizada</div>
-<h2>Um cuidado a menos.</h2>
-<p>Use “Pendente” até conferir a substituição. Depois marque a troca como confirmada.</p>
-<p>Copie o resumo para compartilhar por conta própria e exporte um backup para guardar seus registros.</p>
-<a class="source-link" href="https://www.oabsp.org.br/subsecoes" target="_blank" rel="noopener noreferrer">Consultar sua subseção ↗</a>
-</div>
-</div>
-<div class="section-head">
-<h2>Trocas registradas</h2>
-<div class="trade-actions">
-<button id="eCopiar" class="btn light">Copiar resumo</button>
-<button id="eCsv" class="btn light">Exportar CSV</button>
-</div>
-</div>
-<div class="panel">
-<div class="form-grid trade-filters">
-<label>Mês<input id="eMes" type="month">
-</label>
-<label>Situação<select id="eStatus">
-<option value="">Todas</option>
-<option>Pendente</option>
-<option>Confirmada</option>
-</select>
-</label>
-<label>Buscar profissional<input id="eBusca" type="search" placeholder="Digite um nome">
-</label>
-</div>
-<p id="eMsg" class="sub" role="status" aria-live="polite">
-</p>
-<div id="eLista">
-</div>
-</div>
-<div class="trade-actions backup-actions">
-<button class="btn light" id="eBackup">Baixar backup das trocas</button>
-<label class="btn light" for="eImport">Importar backup</label>
-<input id="eImport" type="file" accept="application/json,.json" hidden>
-</div>
-</section>
-<section id="instalar" hidden>
-<div class="eyebrow">Sempre à mão</div>
-<h1>Seu app no celular.</h1>
-<div class="panel">
-<img src="icons/icon-192.png" alt="Ícone do aplicativo" width="90" height="90" style="border-radius:20px">
-<h2 style="margin:20px 0">Instale a Central CAD</h2>
-<p>Abra o endereço publicado no GitHub Pages pelo navegador do celular.</p>
-<p>
-<b>Android:</b> menu do Chrome → Instalar aplicativo ou Adicionar à tela inicial.</p>
-<p>
-<b>iPhone:</b> Safari → Compartilhar → Adicionar à Tela de Início.</p>
-<button class="btn" id="installApp" hidden>Instalar aplicativo</button>
-<p id="installStatus" role="status">
-</p>
-<button class="btn light" id="updateApp">Verificar atualização do app</button>
-<p class="sub">Versão 2.0.0 · A página e os acessos ficam disponíveis offline depois da primeira visita. Notícias novas precisam de internet.</p>
-</div>
-</section>
-<footer class="foot">
-<span>CAD · Central independente da Advocacia Dativa SP<br>Sem vínculo institucional com a OAB SP ou a Defensoria Pública.</span>
-<span>Seleção editorial: 28/10/2026.<br>Feed verificado ao abrir · coleta programada no GitHub.</span>
-</footer>
-</main>
-</div>
-<script type="module" src="app.js">
-</script>
+  <div class="shell">
+    <aside>
+      <a class="brand" href="#inicio">
+        <img
+          class="brand-icon"
+          src="icons/icon-192.png"
+          alt="Advocacia Dativa"
+        >
+        <div>
+          <strong>CAD</strong>
+          <small>Advocacia Dativa · SP</small>
+        </div>
+      </a>
+
+      <nav class="nav" aria-label="Navegação">
+        <a class="active" href="#inicio">
+          <i>◫</i>Visão geral
+        </a>
+
+        <a href="#noticias">
+          <i>◷</i>Publicações
+        </a>
+
+        <a href="#acessos">
+          <i>↗</i>Acessos oficiais
+        </a>
+
+        <a href="#guia">
+          <i>▤</i>Guia prático
+        </a>
+
+        <a href="#escala">
+          <i>⇄</i>Trocas de escala
+        </a>
+
+        <a href="#notas">
+          <i>✎</i>Minhas notas
+        </a>
+
+        <a href="#instalar">
+          <i>↓</i>Instalar aplicativo
+        </a>
+      </nav>
+
+      <div class="aside-foot">
+        <span class="dot"></span>
+        Informação com origem
+        <br><br>
+        Uma central independente para a sua rotina
+        no convênio DPE/OAB SP.
+      </div>
+    </aside>
+
+    <main id="inicio">
+      <div id="dashboard">
+        <div class="topbar">
+          <span>SEU ESPAÇO DE TRABALHO</span>
+          <span id="today"></span>
+          <span class="pill">São Paulo</span>
+        </div>
+
+        <div class="intro">
+          <div>
+            <div class="eyebrow">Clareza para a sua rotina</div>
+
+            <h1>
+              A advocacia dativa,<br>
+              <em>mais perto de você.</em>
+            </h1>
+
+            <p>
+              Os acessos que você precisa.
+              As publicações que importam.<br>
+              Uma central para acompanhar o convênio DPE/OAB SP.
+            </p>
+          </div>
+
+          <button class="btn light" id="refresh">
+            ↻ Atualizar publicações
+          </button>
+        </div>
+
+        <div class="hero">
+          <div>
+            <span class="eyebrow">Seu principal acesso</span>
+
+            <h2>Da nomeação ao pagamento.</h2>
+
+            <p>
+              Acesse o Portal da Advocacia Conveniada para
+              consultar nomeações, aceitar certidões e
+              acompanhar extratos.
+            </p>
+
+            <a
+              class="btn"
+              href="https://online.defensoria.sp.def.br/indicacaooab"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Entrar no portal da Defensoria
+              <span>↗</span>
+            </a>
+          </div>
+
+          <div class="hero-art">
+            <img
+              src="icons/icon-512.png"
+              alt="Ícone da Advocacia Dativa"
+            >
+          </div>
+        </div>
+
+        <div class="section-head">
+          <h2>Direto ao que você precisa</h2>
+          <span class="sub">Acessos oficiais, em um lugar</span>
+        </div>
+
+        <div class="quick" id="quick"></div>
+
+        <div class="section-head" id="noticias">
+          <div>
+            <div class="eyebrow">Acompanhe o convênio</div>
+            <h2 style="margin-top:6px">No radar da dativa</h2>
+          </div>
+
+          <span class="sub">OAB SP + Defensoria</span>
+        </div>
+
+        <p id="sync" role="status" aria-live="polite">
+          Buscando o feed publicado…
+        </p>
+
+        <div class="cols">
+          <section class="panel" aria-label="Publicações">
+            <label class="search">
+              <span>⌕</span>
+              <input
+                id="search"
+                type="search"
+                placeholder="Buscar assunto, documento ou palavra-chave"
+                aria-label="Buscar publicações"
+              >
+            </label>
+
+            <div class="filters" id="filters"></div>
+            <div id="news"></div>
+
+            <button id="more" class="btn light" hidden>
+              Mostrar mais publicações
+            </button>
+          </section>
+
+          <div class="side-stack">
+            <section class="panel">
+              <div class="eyebrow">Certidões digitais</div>
+              <div class="date-big">Dia 25</div>
+
+              <h3>O prazo do novo fluxo</h3>
+
+              <p>
+                O Comunicado 01/2026 prevê aceite até o dia 25
+                para pagamento no primeiro dia útil do segundo
+                mês subsequente. Confira o calendário e
+                eventuais comunicados posteriores.
+              </p>
+
+              <a
+                href="https://www.oabsp.org.br/upload/4106076576.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Ler comunicado e tutorial ↗
+              </a>
+
+              <p style="font-size:10px;margin-top:16px">
+                Orientação conferida em 28/10/2026.
+              </p>
+            </section>
+
+            <section class="panel">
+              <h3>Consulta às fontes</h3>
+
+              <p>
+                A coleta traz títulos e links.
+                A validade de cada regra deve ser
+                conferida no documento.
+              </p>
+
+              <div id="states"></div>
+
+              <p style="font-size:10px">
+                Uma falha de consulta não significa
+                ausência de novidades.
+              </p>
+            </section>
+          </div>
+        </div>
+
+        <section id="acessos">
+          <div class="section-head">
+            <h2>Seus acessos oficiais</h2>
+
+            <span class="sub">
+              Escolha a tarefa e siga para a fonte
+            </span>
+          </div>
+
+          <div class="access-grid" id="links"></div>
+        </section>
+
+        <section id="guia">
+          <div class="section-head">
+            <h2>Guia para o dia a dia</h2>
+
+            <span class="sub">
+              Orientações conferidas em 28/10/2026
+            </span>
+          </div>
+
+          <div class="panel">
+            <details open>
+              <summary>
+                Onde aceitar ou protocolar minha certidão?
+              </summary>
+
+              <p>
+                Desde 16/07/2026, as certidões emitidas
+                pelo TJSP a partir de 01/09/2025 seguem o
+                aceite no sistema da Defensoria.
+                Certidões anteriores a essa data,
+                ausentes do sistema, seguem a área
+                restrita OAB SP, prevista até setembro
+                de 2030. Não repita um protocolo já realizado.
+              </p>
+
+              <a
+                class="guide-link"
+                href="https://www.oabsp.org.br/upload/4106076576.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Comunicado 01/2026 e tutorial ↗
+              </a>
+            </details>
+
+            <details>
+              <summary>
+                Como proceder com nomeações e dados do processo?
+              </summary>
+
+              <p>
+                Para propositura de ação, o Comunicado
+                02/2026 orienta atender o usuário,
+                ajuizar a demanda e depois registrar
+                os dados e aceitar a nomeação.
+                Em processos em andamento, os dados já
+                constam da nomeação. Erros devem ser
+                levados à subseção por e-mail para
+                encaminhamento da retificação.
+              </p>
+
+              <a
+                class="guide-link"
+                href="https://www.defensoria.sp.def.br/documents/20122/64c947fb-bb59-39c0-4f75-33bbff4f0f75"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Consultar Comunicado 02/2026 ↗
+              </a>
+            </details>
+
+            <details>
+              <summary>
+                Qual tabela e qual termo devo consultar?
+              </summary>
+
+              <p>
+                Comece pelas páginas oficiais de
+                honorários e termos do convênio,
+                que indicam vigência a partir de
+                01/05/2026. A aplicação a cada caso
+                depende das regras e da situação
+                processual; confira o documento completo.
+              </p>
+
+              <a
+                class="guide-link"
+                href="https://www.defensoria.sp.def.br/transparencia/portal-da-transparencia/convenios/convenio-oab/honorarios"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Consultar honorários ↗
+              </a>
+            </details>
+
+            <details>
+              <summary>
+                Onde vejo inscrições, revalidações e homologação?
+              </summary>
+
+              <p>
+                O período do edital de 2026 foi de
+                09/03 a 30/04/2026 e está encerrado.
+                Consulte a página de editais para
+                listas e futuras aberturas, sem
+                presumir inscrição automática.
+              </p>
+
+              <a
+                class="guide-link"
+                href="https://www.defensoria.sp.def.br/transparencia/portal-da-transparencia/convenios/convenio-oab/editais-oab"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Abrir editais e listas ↗
+              </a>
+            </details>
+
+            <details>
+              <summary>
+                Preciso resolver uma dúvida de pagamento.
+                Quem procurar?
+              </summary>
+
+              <p>
+                A página do convênio na Defensoria
+                orienta procurar sua subseção para
+                dúvidas sobre honorários.
+                Use o diretório da OAB SP para
+                localizar o atendimento local.
+              </p>
+
+              <a
+                class="guide-link"
+                href="https://www.oabsp.org.br/subsecoes"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Localizar subseção ↗
+              </a>
+            </details>
+          </div>
+        </section>
+
+        <section id="notas">
+          <div class="section-head">
+            <h2>Seu bloco de notas</h2>
+            <span class="sub">Salvo neste navegador</span>
+          </div>
+
+          <div class="panel">
+            <label for="notes">Lembretes da sua rotina</label>
+
+            <textarea
+              id="notes"
+              class="note-area"
+              placeholder="Anote o que você precisa lembrar…"
+            ></textarea>
+
+            <div class="row">
+              <button id="saveNote" class="btn">
+                Salvar notas
+              </button>
+
+              <button id="exportNote" class="btn light">
+                Exportar texto
+              </button>
+
+              <span
+                id="noteStatus"
+                class="sub"
+                role="status"
+              ></span>
+            </div>
+
+            <p class="sub">
+              As notas ficam neste dispositivo.
+              Exporte uma cópia para guardar.
+            </p>
+          </div>
+        </section>
+      </div>
+
+      <section id="escala" hidden>
+        <div class="eyebrow">Organização da triagem</div>
+
+        <div class="intro">
+          <div>
+            <h1>Trocas de <em>escala.</em></h1>
+
+            <p>
+              Registre substituições, acompanhe
+              confirmações e tenha sua agenda organizada.
+            </p>
+          </div>
+
+          <span class="pill">Salvo neste aparelho</span>
+        </div>
+
+        <div class="scale-stats">
+          <div class="panel">
+            <span class="eyebrow">Neste filtro</span>
+            <strong id="totalTrades">0</strong>
+            <span>trocas registradas</span>
+          </div>
+
+          <div class="panel">
+            <span class="eyebrow">A acompanhar</span>
+            <strong id="pendingTrades">0</strong>
+            <span>pendentes</span>
+          </div>
+
+          <div class="panel">
+            <span class="eyebrow">Tudo certo</span>
+            <strong id="confirmedTrades">0</strong>
+            <span>confirmadas</span>
+          </div>
+        </div>
+
+        <div class="scale-layout">
+          <div class="panel">
+            <h2 id="formTitle">Nova troca</h2>
+
+            <p class="sub">
+              Preencha os participantes e a data da triagem.
+            </p>
+
+            <p class="sub" id="advogadosHint">
+              107 profissionais cadastrados.
+              Digite parte do nome ou o número da OAB
+              e escolha a sugestão.
+            </p>
+
+            <form id="tradeForm">
+              <div class="form-grid">
+                <label>
+                  Data da triagem
+                  <input id="eData" type="date" required>
+                </label>
+
+                <label>
+                  Turno
+                  <select id="eTurno">
+                    <option>Manhã</option>
+                    <option>Tarde</option>
+                    <option>Dia todo</option>
+                  </select>
+                </label>
+
+                <label>
+                  Advogado(a) que sai
+                  <input
+                    id="eSai"
+                    type="text"
+                    required
+                    maxlength="160"
+                    list="advs"
+                    autocomplete="off"
+                    placeholder="Digite o nome ou a OAB"
+                  >
+                </label>
+
+                <label>
+                  Advogado(a) que entra
+                  <input
+                    id="eEntra"
+                    type="text"
+                    required
+                    maxlength="160"
+                    list="advs"
+                    autocomplete="off"
+                    placeholder="Digite o nome ou a OAB"
+                  >
+                </label>
+              </div>
+
+              <datalist id="advs"></datalist>
+
+              <label class="form-full">
+                Observação (opcional)
+                <textarea
+                  id="eMotivo"
+                  rows="3"
+                  maxlength="1000"
+                  placeholder="Local, horário ou informação importante"
+                ></textarea>
+              </label>
+
+              <div class="trade-actions">
+                <button
+                  class="btn"
+                  type="submit"
+                  id="eSalvar"
+                >
+                  Registrar troca
+                </button>
+
+                <button
+                  class="btn light"
+                  type="button"
+                  id="eCancelar"
+                  hidden
+                >
+                  Cancelar edição
+                </button>
+              </div>
+            </form>
+
+            <p class="sub">
+              Registro pessoal: a confirmação nesta
+              tela não comunica a subseção ou o
+              outro profissional.
+            </p>
+          </div>
+
+          <div class="panel scale-tip">
+            <div class="eyebrow">Sua rotina, organizada</div>
+
+            <h2>Um cuidado a menos.</h2>
+
+            <p>
+              Use “Pendente” até conferir a substituição.
+              Depois marque a troca como confirmada.
+            </p>
+
+            <p>
+              Copie o resumo para compartilhar por conta
+              própria e exporte um backup para guardar
+              seus registros.
+            </p>
+
+            <a
+              class="source-link"
+              href="https://www.oabsp.org.br/subsecoes"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Consultar sua subseção ↗
+            </a>
+          </div>
+        </div>
+
+        <div class="section-head">
+          <h2>Trocas registradas</h2>
+
+          <div class="trade-actions">
+            <button id="eCopiar" class="btn light">
+              Copiar resumo
+            </button>
+
+            <button id="eCsv" class="btn light">
+              Exportar CSV
+            </button>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="form-grid trade-filters">
+            <label>
+              Mês
+              <input id="eMes" type="month">
+            </label>
+
+            <label>
+              Situação
+              <select id="eStatus">
+                <option value="">Todas</option>
+                <option>Pendente</option>
+                <option>Confirmada</option>
+              </select>
+            </label>
+
+            <label>
+              Buscar profissional
+              <input
+                id="eBusca"
+                type="search"
+                placeholder="Digite um nome"
+              >
+            </label>
+          </div>
+
+          <p
+            id="eMsg"
+            class="sub"
+            role="status"
+            aria-live="polite"
+          ></p>
+
+          <div id="eLista"></div>
+        </div>
+
+        <div class="trade-actions backup-actions">
+          <button class="btn light" id="eBackup">
+            Baixar backup das trocas
+          </button>
+
+          <label class="btn light" for="eImport">
+            Importar backup
+          </label>
+
+          <input
+            id="eImport"
+            type="file"
+            accept="application/json,.json"
+            hidden
+          >
+        </div>
+      </section>
+
+      <section id="instalar" hidden>
+        <div class="eyebrow">Sempre à mão</div>
+        <h1>Seu app no celular.</h1>
+
+        <div class="panel">
+          <img
+            src="icons/icon-192.png"
+            alt="Ícone do aplicativo"
+            width="90"
+            height="90"
+            style="border-radius:20px"
+          >
+
+          <h2 style="margin:20px 0">
+            Instale a Central CAD
+          </h2>
+
+          <p>
+            Abra o endereço publicado no GitHub Pages
+            pelo navegador do celular.
+          </p>
+
+          <p>
+            <b>Android:</b>
+            menu do Chrome → Instalar aplicativo
+            ou Adicionar à tela inicial.
+          </p>
+
+          <p>
+            <b>iPhone:</b>
+            Safari → Compartilhar →
+            Adicionar à Tela de Início.
+          </p>
+
+          <button class="btn" id="installApp" hidden>
+            Instalar aplicativo
+          </button>
+
+          <p id="installStatus" role="status"></p>
+
+          <button class="btn light" id="updateApp">
+            Verificar atualização do app
+          </button>
+
+          <p class="sub">
+            Versão 2.0.1 · A página e os acessos ficam
+            disponíveis offline depois da primeira visita.
+            Notícias novas precisam de internet.
+          </p>
+        </div>
+      </section>
+
+      <footer class="foot">
+        <span>
+          CAD · Central independente da Advocacia Dativa SP
+          <br>
+          Sem vínculo institucional com a OAB SP
+          ou a Defensoria Pública.
+        </span>
+
+        <span>
+          Seleção editorial: 28/10/2026.
+          <br>
+          Feed verificado ao abrir ·
+          coleta programada no GitHub.
+        </span>
+      </footer>
+    </main>
+  </div>
+
+  <!-- Mantém as funções existentes do aplicativo. -->
+  <script type="module" src="app.js"></script>
+
+  <!-- Lista e sugestões incorporadas neste HTML. -->
+  <script type="module">
+    const ADVOGADOS = [
+      { nome: "AGNALDO ALVES DE SIQUEIRA", oab: "497500" },
+      { nome: "ALESSANDRA DA SILVA", oab: "505895" },
+      { nome: "ALEXANDRE DIAS MIZUTANI", oab: "341199" },
+      { nome: "ALEXSANDRO MARINS MORAES", oab: "221802" },
+      { nome: "ALINE LOSANO DE ARAUJO SILVA", oab: "542890" },
+      { nome: "ANA FLÁVIA LEANDRA SILVEIRA", oab: "467427" },
+      { nome: "ANA PAULA ABREU DE AGUIAR BAVARESCO", oab: "282928" },
+      { nome: "ANA PAULA COMIN LODEIRO BIANCHINI D'EMILIO", oab: "220479" },
+      { nome: "ANNA LUIZA TOZZI DE ALMEIDA VILLELA RIMOLA", oab: "497336" },
+      { nome: "ANNY YOO MI CHAE", oab: "401117" },
+      { nome: "BEATRIZ BARBOSA PEREIRA", oab: "507048" },
+      { nome: "BEATRIZ OLANDA GUIMARÃES COSTA", oab: "534315" },
+      { nome: "BEATRIZ RAVANHANI DE SOUZA", oab: "378994" },
+      { nome: "BRUNA MENDES CASAGRANDE", oab: "376551" },
+      { nome: "BRUNO ELSNER CARUSO", oab: "492686" },
+      { nome: "CARLA BENEDICTO SOUZA", oab: "466165" },
+      { nome: "CARLA SILVIA KAWAMURA", oab: "514303" },
+      { nome: "CARLOS EDUARDO CORREA DUARTE", oab: "352147" },
+      { nome: "CAROLINE DA SILVA DIAS", oab: "498663" },
+      { nome: "CAROLINE MICHELE SCHMITT", oab: "371669" },
+      { nome: "CLAUDIA PACIULLI AZEVEDO PARISE", oab: "293792" },
+      { nome: "CLAUDIA REGINA DE OLIVEIRA", oab: "203871" },
+      { nome: "CLAUDIO FERRUCCIO DE SIQUEIRA ROSIN", oab: "359821" },
+      { nome: "DANIEL AMBROSIO DA SILVA JUNIOR", oab: "404033" },
+      { nome: "DIEGO MARTINS ALVES", oab: "278918" },
+      { nome: "DORACI DA SILVA SOBRAL", oab: "237496" },
+      { nome: "EDSON ALMEIDA DA MOTA", oab: "177602" },
+      { nome: "EDUARDO HENRIQUE SOARES CLAUDIO ARRUDA", oab: "529713" },
+      { nome: "ELCIO CARLOS ALMEIDA FERREIRA", oab: "407205" },
+      { nome: "ELISANGELA SANTOS DE LIMA TEIXEIRA", oab: "542263" },
+      { nome: "ELISE RAMOUNOULOU MADELLA", oab: "308744" },
+      { nome: "EVELYN CARINA DE OLIVEIRA NUNES", oab: "382013" },
+      { nome: "FLÁVIA CARMO FERREIRA", oab: "497818" },
+      { nome: "GABRIELA DE CAMARGO PRADO", oab: "453127" },
+      { nome: "GABRIELA MOREIRA SILVA", oab: "458167" },
+      { nome: "GIANNA DA CUNHA PIOTTI", oab: "196155" },
+      { nome: "GISELE QUELHO KAISER SALIBA ANDRADE", oab: "354545" },
+      { nome: "GUSTAVO ORLANDO COSTA", oab: "437605" },
+      { nome: "HELEN CRISTINA DE FREITAS", oab: "372917" },
+      { nome: "HELEN SANTOS OLIVEIRA", oab: "388846" },
+      { nome: "IARA SILVIA MAINARDI KOGA", oab: "71625" },
+      { nome: "ISABEL MARIA DOS SANTOS BISPO", oab: "255149" },
+      { nome: "ISABELLA XAVIER LOBO", oab: "446064" },
+      { nome: "ISAYENE FERREIRA DE ARAÚJO", oab: "540607" },
+      { nome: "ISTEFANI SANTOS LIMA", oab: "540739" },
+      { nome: "IZABELA EVANGELISTA SOARES", oab: "471502" },
+      { nome: "JANAINA LOPES DE CASTRO", oab: "380479" },
+      { nome: "JANE COUTO INSFRAN DE OLIVEIRA", oab: "328202" },
+      { nome: "JAQUELINE DA SILVA MACHADO", oab: "489267" },
+      { nome: "JOÃO MARCO TEIXEIRA DE SOUZA BRAGA", oab: "404113" },
+      { nome: "JUSCILENE PINHEIRO GONÇALVES SANT'ANA", oab: "462257" },
+      { nome: "KENIA JOYCE ROSARIO DA SILVA", oab: "530777" },
+      { nome: "LEONARDO LUIS DIAS", oab: "397568" },
+      { nome: "LILIAN JOIA FERRARO", oab: "324608" },
+      { nome: "LUANA GONÇALVES SOUSA DE CARVALHO", oab: "521204" },
+      { nome: "LUIS GUSTAVO CIGANA CRIVELLARO", oab: "250156" },
+      { nome: "LUIZ CARLOS SARRA", oab: "100618" },
+      { nome: "MARCO ANTONIO DE CARVALHO SANTOS", oab: "93671" },
+      { nome: "MARCOS RODRIGUES DA SILVA", oab: "524960" },
+      { nome: "MARIA BELINHA DE SOUZA FREITAS", oab: "245227" },
+      { nome: "MARIA DE FATIMA PEREIRA", oab: "110007" },
+      { nome: "MARIA FERNANDA LIMA RODRIGUES NASCIMENTO", oab: "318731" },
+      { nome: "MARIA IVONE DOS REIS", oab: "328246" },
+      { nome: "MARIANE CORREA DA CRUZ MESSERLIAN", oab: "296508" },
+      { nome: "MARINA HONÓRIO FERREIRA", oab: "411477" },
+      { nome: "MARISTELA GONÇALVES DA SILVA", oab: "411478" },
+      { nome: "MATEUS ASSIS DA SILVA", oab: "501237" },
+      { nome: "MATEUS GROPPO PICHARKI", oab: "402760" },
+      { nome: "MATHEUS GUSTAVO SILVA", oab: "518501" },
+      { nome: "MICHELLY CRISTINA FELIX DA SILVA", oab: "353702" },
+      { nome: "NATALIA RODRIGUES LOPES", oab: "434793" },
+      { nome: "NATHÁLIA DOS ANJOS DE PAULA", oab: "547243" },
+      { nome: "NELSON ALEXANDER SCHEPIS MONTINI", oab: "316892" },
+      { nome: "PATRICIA GONGORA RODRIGUES SILVA", oab: "154745" },
+      { nome: "PEDRO DEMETRIO JUSTER DA SILVA", oab: "535506" },
+      { nome: "PRISCILA GABRIELA MENDES", oab: "467653" },
+      { nome: "QUEZIA HAPUQUE SOUZA PIRES", oab: "478071" },
+      { nome: "RAQUEL ALEXANDRE PEREIRA DA SILVA", oab: "457789" },
+      { nome: "RAQUEL HONORATO MOREIRA DA SILVA", oab: "483672" },
+      { nome: "REGINA DE OLIVEIRA BRAGA", oab: "102971" },
+      { nome: "RENATA UCCI", oab: "101079" },
+      { nome: "RITA DE CASSIA SILVERIO", oab: "215372" },
+      { nome: "RITA DE CASSIA VIEIRA BRANCO DE OLIVEIRA MENDES", oab: "466270" },
+      { nome: "ROBERTO SOUZA DA SILVA", oab: "377486" },
+      { nome: "ROBSON CAVALHEIRO", oab: "475433" },
+      { nome: "ROGERIO VAGNER REZENDE", oab: "217767" },
+      { nome: "ROSANA DE CASSIA BORGES BIANCALANA", oab: "165941" },
+      { nome: "ROSANA DE SOUZA", oab: "380358" },
+      { nome: "SANDRA CAVALCANTI PETRIN", oab: "128412" },
+      { nome: "SARA DOS SANTOS", oab: "457273" },
+      { nome: "SARAH LÍVIA PIMENTEL RESENDE", oab: "377501" },
+      { nome: "SÉRGIO AMARAL", oab: "378901" },
+      { nome: "SHIRLEY GUIMARÃES COSTA", oab: "190341" },
+      { nome: "SILVIO DE SOUSA OLIVEIRA", oab: "487610" },
+      { nome: "STEFANY ALVES LOPES", oab: "537073" },
+      { nome: "SUELEN SOUZA SAMPAIO", oab: "499677" },
+      { nome: "SUELY APARECIDA GIANNINI BORGES", oab: "264054" },
+      { nome: "SUZANA GAVA MARINS MORAES", oab: "546844" },
+      { nome: "TELMA GONÇALVES DO NASCIMENTO", oab: "275241" },
+      { nome: "THALITA GONÇALVES MARANGONI", oab: "282258" },
+      { nome: "VALÉRIA BARBOSA PACHECO", oab: "378920" },
+      { nome: "VERONICE STECHE BURG", oab: "295470" },
+      { nome: "VICTOR LOPEZ MANSO VIEIRA", oab: "325460" },
+      { nome: "VINÍCIUS COEVAS CASTILHO", oab: "504816" },
+      { nome: "VIVIANE APARECIDA PIRES DE PAULA OLIVEIRA MELO", oab: "481424" },
+      { nome: "WALDILARA FERREIRA ANTUNES", oab: "520021" },
+      { nome: "WILLIAN DE LIMA FARIAS", oab: "402567" }
+    ];
+
+    function normalizar(valor) {
+      return String(valor)
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLocaleLowerCase("pt-BR")
+        .trim();
+    }
+
+    function buscarAdvogados(consulta, extras = []) {
+      const termos = normalizar(consulta)
+        .split(/\s+/)
+        .filter(Boolean);
+
+      if (!termos.length) return [];
+
+      const lista = [...ADVOGADOS];
+
+      const existentes = new Set(
+        lista.map(pessoa => normalizar(pessoa.nome))
+      );
+
+      for (const nome of extras) {
+        const chave = normalizar(nome);
+
+        if (chave && !existentes.has(chave)) {
+          existentes.add(chave);
+
+          lista.push({
+            nome: String(nome),
+            oab: ""
+          });
+        }
+      }
+
+      return lista
+        .filter(pessoa => {
+          const texto = normalizar(
+            pessoa.nome + " " + pessoa.oab
+          );
+
+          return termos.every(termo =>
+            texto.includes(termo)
+          );
+        })
+        .sort((a, b) =>
+          a.nome.localeCompare(b.nome, "pt-BR")
+        );
+    }
+
+    function ativarSugestoes(
+      input,
+      getExtras = () => []
+    ) {
+      // Evita criar o menu duas vezes caso o app.js
+      // atualizado já tenha ativado as sugestões.
+      if (
+        document.getElementById(
+          input.id + "-opcoes"
+        )
+      ) {
+        return;
+      }
+
+      input.removeAttribute("list");
+      input.autocomplete = "off";
+
+      input.setAttribute("role", "combobox");
+      input.setAttribute("aria-autocomplete", "list");
+      input.setAttribute("aria-expanded", "false");
+      input.setAttribute(
+        "aria-controls",
+        input.id + "-opcoes"
+      );
+      input.setAttribute(
+        "aria-describedby",
+        "advogadosHint"
+      );
+
+      const wrapper = document.createElement("div");
+      wrapper.className = "autocomplete-wrapper";
+
+      input.before(wrapper);
+      wrapper.append(input);
+
+      const dropdown = document.createElement("div");
+      dropdown.className = "autocomplete-dropdown";
+      dropdown.hidden = true;
+
+      const lista = document.createElement("div");
+      lista.id = input.id + "-opcoes";
+
+      lista.setAttribute("role", "listbox");
+      lista.setAttribute(
+        "aria-label",
+        "Advogados encontrados"
+      );
+
+      const mensagem = document.createElement("div");
+      mensagem.className = "autocomplete-status";
+      mensagem.setAttribute("role", "status");
+
+      dropdown.append(lista, mensagem);
+      wrapper.append(dropdown);
+
+      let resultados = [];
+      let ativo = -1;
+
+      function fechar() {
+        dropdown.hidden = true;
+        input.setAttribute("aria-expanded", "false");
+        input.removeAttribute("aria-activedescendant");
+        ativo = -1;
+      }
+
+      function selecionar(indice) {
+        const pessoa = resultados[indice];
+
+        if (!pessoa) return;
+
+        input.value = pessoa.nome;
+
+        input.dispatchEvent(
+          new Event("change", {
+            bubbles: true
+          })
+        );
+
+        fechar();
+        input.focus();
+      }
+
+      function destacar(indice) {
+        ativo = indice;
+
+        [...lista.children].forEach(
+          (elemento, i) => {
+            elemento.setAttribute(
+              "aria-selected",
+              String(i === ativo)
+            );
+
+            elemento.classList.toggle(
+              "is-active",
+              i === ativo
+            );
+          }
+        );
+
+        if (ativo >= 0) {
+          const elemento = lista.children[ativo];
+
+          input.setAttribute(
+            "aria-activedescendant",
+            elemento.id
+          );
+
+          elemento.scrollIntoView({
+            block: "nearest"
+          });
+        }
+      }
+
+      function mostrar() {
+        const encontrados = buscarAdvogados(
+          input.value,
+          getExtras()
+        );
+
+        resultados = encontrados.slice(0, 12);
+        ativo = -1;
+
+        input.removeAttribute(
+          "aria-activedescendant"
+        );
+
+        lista.replaceChildren();
+
+        if (!input.value.trim()) {
+          fechar();
+          return;
+        }
+
+        resultados.forEach((pessoa, indice) => {
+          const opcao = document.createElement("div");
+
+          opcao.id = lista.id + "-" + indice;
+          opcao.className = "autocomplete-option";
+
+          opcao.setAttribute("role", "option");
+          opcao.setAttribute(
+            "aria-selected",
+            "false"
+          );
+
+          const nome = document.createElement(
+            "strong"
+          );
+
+          nome.textContent = pessoa.nome;
+
+          const oab = document.createElement("small");
+
+          oab.textContent = pessoa.oab
+            ? "OAB SP " + pessoa.oab
+            : "Nome usado neste aparelho";
+
+          opcao.append(nome, oab);
+
+          opcao.addEventListener(
+            "pointerdown",
+            evento => {
+              evento.preventDefault();
+            }
+          );
+
+          opcao.addEventListener(
+            "click",
+            () => selecionar(indice)
+          );
+
+          lista.append(opcao);
+        });
+
+        if (!encontrados.length) {
+          mensagem.textContent =
+            "Nenhum nome encontrado. " +
+            "Você pode preencher manualmente.";
+        } else if (encontrados.length > 12) {
+          mensagem.textContent =
+            "Mostrando 12 de " +
+            encontrados.length +
+            ". Continue digitando para refinar.";
+        } else {
+          mensagem.textContent =
+            encontrados.length +
+            " profissional(is) encontrado(s).";
+        }
+
+        dropdown.hidden = false;
+
+        input.setAttribute(
+          "aria-expanded",
+          "true"
+        );
+      }
+
+      input.addEventListener("input", mostrar);
+
+      input.addEventListener("keydown", evento => {
+        if (evento.key === "Escape") {
+          fechar();
+          return;
+        }
+
+        if (
+          evento.key === "ArrowDown" ||
+          evento.key === "ArrowUp"
+        ) {
+          if (dropdown.hidden) mostrar();
+          if (!resultados.length) return;
+
+          evento.preventDefault();
+
+          let proximo;
+
+          if (evento.key === "ArrowDown") {
+            proximo =
+              (ativo + 1) % resultados.length;
+          } else {
+            proximo = ativo < 0
+              ? resultados.length - 1
+              : (
+                  ativo - 1 + resultados.length
+                ) % resultados.length;
+          }
+
+          destacar(proximo);
+          return;
+        }
+
+        if (
+          evento.key === "Enter" &&
+          !dropdown.hidden &&
+          ativo >= 0
+        ) {
+          evento.preventDefault();
+          selecionar(ativo);
+          return;
+        }
+
+        if (evento.key === "Tab") {
+          fechar();
+        }
+      });
+
+      input.addEventListener("blur", () => {
+        setTimeout(() => {
+          if (document.activeElement !== input) {
+            fechar();
+          }
+        }, 120);
+      });
+
+      input.form?.addEventListener(
+        "reset",
+        fechar
+      );
+    }
+
+    function iniciarListaDeAdvogados() {
+      function nomesJaUsados() {
+        try {
+          const trocas = JSON.parse(
+            localStorage.getItem("trocas") || "[]"
+          );
+
+          if (!Array.isArray(trocas)) return [];
+
+          return trocas
+            .flatMap(troca => [
+              troca.sai,
+              troca.entra
+            ])
+            .filter(nome =>
+              typeof nome === "string"
+            );
+        } catch {
+          return [];
+        }
+      }
+
+      ["eSai", "eEntra"].forEach(id => {
+        const campo = document.getElementById(id);
+
+        if (campo) {
+          ativarSugestoes(
+            campo,
+            nomesJaUsados
+          );
+        }
+      });
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener(
+        "DOMContentLoaded",
+        iniciarListaDeAdvogados,
+        { once: true }
+      );
+    } else {
+      iniciarListaDeAdvogados();
+    }
+  </script>
 </body>
 </html>
