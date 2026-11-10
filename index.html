@@ -4,12 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
 
-  <!-- Segurança: só carrega scripts do próprio site e bloqueia objetos externos -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
+  <!-- Segurança: scripts só do próprio site e do Firebase (gstatic); conexões só com Google/Firebase -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.gstatic.com; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://*.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com; object-src 'none'; base-uri 'self'; form-action 'none'">
   <meta name="referrer" content="strict-origin-when-cross-origin">
 
   <meta name="theme-color" content="#003b71">
   <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
 
   <title>CAD | Sua central da advocacia dativa</title>
@@ -435,7 +436,7 @@
         <section id="notas">
           <div class="section-head">
             <h2>Seu bloco de notas</h2>
-            <span class="sub">Salvo neste navegador</span>
+            <span class="sub">Salvo na sua conta</span>
           </div>
 
           <div class="panel">
@@ -464,8 +465,9 @@
             </div>
 
             <p class="sub">
-              As notas ficam neste dispositivo.
-              Exporte uma cópia para guardar.
+              As notas são guardadas na sua conta e
+              ficam disponíveis em qualquer aparelho
+              onde você entrar.
             </p>
           </div>
         </section>
@@ -484,7 +486,7 @@
             </p>
           </div>
 
-          <span class="pill">Salvo neste aparelho</span>
+          <span class="pill">Salvo na sua conta</span>
         </div>
 
         <div class="scale-stats">
@@ -739,9 +741,9 @@
           </button>
 
           <p class="sub">
-            Versão 2.0.2 · A página e os acessos ficam
+            Versão 2.1.0 · A página e os acessos ficam
             disponíveis offline depois da primeira visita.
-            Notícias novas precisam de internet.
+            Notícias e dados da conta precisam de internet.
           </p>
         </div>
       </section>
@@ -764,10 +766,13 @@
     </main>
   </div>
 
+  <!-- Login e sincronização com o Firebase (deve vir antes do app.js) -->
+  <script type="module" src="nuvem.js"></script>
+
   <!-- Funções principais do aplicativo -->
   <script type="module" src="app.js"></script>
 
-  <!-- Lista de advogados e sugestões (movida para arquivo externo) -->
+  <!-- Lista de advogados e sugestões -->
   <script type="module" src="advogados.js"></script>
 </body>
 </html>
